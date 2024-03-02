@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<body class="w-full flex flex-col items-center justify-start h-screen text-gray-700">
+
+
+    <h1 class="text-2xl mt-7 font-extrabold tracking-tight">Login To Your Account</h1>
+
+    <!-- <div class="mt-5">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        {% if message == 'imail' %}
+        <div style="background-color: rgba(255, 150, 146, 0.804); text-align:center; padding:10px; border-radius:5px;">
+            Invalid login, please try again ❌
+        </div>
+        {% endif %}
+
+        {% if message == 'ipass' %}
+        <div style="background-color: rgba(255, 191, 0, 0.978); text-align:center; padding:10px; border-radius:5px;">
+            Incorrect password, try again ❌
+        </div>
+        {% endif%}
+
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div> -->
+
+
+    <form class="flex flex-col bg-white rounded pt-5 pb-12" method="post">
+
+        <label class="font-semibold text-xs" for="usernameField">Email</label>
+        <input class="flex items-center h-12 px-4 w-64 bg-gray-100 mt-2 rounded focus:outline-none focus:ring-2"
+            type="email" name="email" required>
+
+        <label class="font-semibold text-xs mt-3" for="passwordField">Password</label>
+        <input class="flex items-center h-12 px-4 w-64 bg-gray-100 mt-2 rounded focus:outline-none focus:ring-2"
+            type="password" name="password" required>
+
+        <button
+            class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Login</button>
+
+    </form>
+
+    <footer class="bg-white remove:bg-gray-800 pb-10">
+        <div class="max-w-screen-xl p-4 py-6 mx-auto lg:py-5 md:p-8 lg:p-10">
+
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8">
+            <div class="text-center">
+                <span class="block text-sm text-center text-gray-500">© 2024 CosomoQuest. All
+                    Rights Reserved. Built with ❤️
+                </span>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+{% endblock %}
