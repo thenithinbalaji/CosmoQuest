@@ -1,3 +1,8 @@
-.vscode
-.venv
+# general ignores
+venv
 .env
+
+# nithin ignores
+.vscode
+
+# vaish ignores
