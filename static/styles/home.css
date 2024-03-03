@@ -1,0 +1,50 @@
+#navbar,
+#title {
+    visibility: hidden;
+}
+
+#heroimg {
+    visibility: hidden;
+    opacity: 80%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+}
+
+.animate__fadeInDown {
+    animation-name: fadeInDown;
+    animation-duration: 0.5s;
+}
+
+.animate__fadeInUp2 {
+    animation-name: fadeInUp;
+    animation-duration: 2s;
+}

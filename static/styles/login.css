@@ -80,7 +80,8 @@ body {
 
 }
 
-#loginForm {
+#loginForm,
+#navbar {
     visibility: hidden;
 }
 
@@ -112,10 +113,10 @@ body {
 
 .animate__fadeInUp {
     animation-name: fadeInUp;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
 }
 
 .animate__fadeInDown {
     animation-name: fadeInDown;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
 }

@@ -1,19 +1,169 @@
 {% extends 'base.html' %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+<script src="{{ url_for('static', filename='scripts/home.js') }}" defer></script>
+{% endblock %}
+
+
 {% block main %}
 
-<body>
-    <p>Welcome to CosmoQuest!</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quod officia quas fuga non ex cumque
-        repudiandae totam voluptas dolorum, harum mollitia autem nam quaerat assumenda iure facilis sapiente illum.</p>
+<body class="w-full h-screen bg-[#0C0D12]">
 
-    <ul>
-        <li><a href="/earth">Earth</a></li>
-        <li><a href="/mars">Mars</a></li>
-        <li><a href="/moon">Moon</a></li>
-        <li><a href="/jupiter">Jupiter</a></li>
-        <li><a href="/saturn">Saturn</a></li>
-    </ul>
+    <div class="fixed w-full text-white flex justify-between p-5 bg-gradient-to-b from-black to-transparent z-10"
+        id="navbar">
+
+        <div class="flex justify-center gap-5">
+            <a href="/" class="hover:scale-110 duration-200">Home</a>
+            <a href="/#aboutus" class="hover:scale-110 duration-200 hidden md:block">About Us</a>
+            <a href="/#planets" class="hover:scale-110 duration-200">Book Tickets</a>
+        </div>
+
+        <div>
+            <a href="/login"
+                class="flex items-center justify-center h-12 px-6 w-40 bg-[#3c3f62] rounded font-semibold text-sm hover:bg-[#545989]">Login</a>
+        </div>
+    </div>
+
+    <div class="relative">
+        <img src="{{ url_for('static', filename='assets/bg2.png') }}" alt="hero" class="w-full z-50" id="heroimg">
+        <div class="absolute inset-0 flex flex-col justify-center items-center" id="title">
+            <h1 class="text-8xl font-extrabold tracking-widest font-[Montserrat] text-white text-center">LOOK UP.</h1>
+            <p class="text-white text-xl font-bold tracking-wide font-[Montserrat]">Yes, up there, up to the stars
+            </p>
+        </div>
+    </div>
+
+    <div class="flex justify-center mb-5">
+        <div class="w-3/4 p-5">
+            <h1 class="text-5xl font-extrabold font-[Montserrat] text-white pt-20 mb-5" id="aboutus">About Us</h1>
+            <p class="text-gray-300">
+                At CosmoQuest, we're on a mission to make space exploration a reality for everyone. Founded by a team of
+                passionate space enthusiasts, scientists, and entrepreneurs, we believe that the wonders of the cosmos
+                should be accessible to all. Whether you're an aspiring astronaut, a seasoned stargazer, or simply
+                curious
+                about the mysteries of the universe, CosmoQuest offers unparalleled opportunities to embark on
+                unforgettable
+                journeys beyond our atmosphere. With a commitment to safety, innovation, and awe-inspiring experiences,
+                we
+                invite you to join us as we explore the final frontier together. Welcome to CosmoQuest, where the stars
+                are
+                waiting to be discovered.
+            </p>
+        </div>
+    </div>
+
+    <div class="w-full px-5 pt-10 pb-20 mt-10" id="planets">
+
+        <h1 class="text-5xl font-extrabold font-[Montserrat] text-white my-10 text-center">Destinations
+        </h1>
+
+        <div class="flex flex-wrap justify-center gap-8">
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+
+                <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/moon-box.png') }}"
+                    alt="" />
+
+                <div class="p-5">
+
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
+                        Moon
+                    </h5>
+
+                    <p class="my-3 font-normal text-gray-400">
+                        The Moon is in geophysical terms a planetary-mass object or satellite planet. It has a mass that
+                        amounts to 1.2% of Earth's, and a diameter that is roughly one-quarter of Earth's or with 3,474
+                        km
+                        (2,159 mi) about as wide as Australia.
+                    </p>
+
+                    <a href="/moon"
+                        class="mt-5 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white  rounded-lg  focus:ring-4 focus:outline-none bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+                        Book Tickets
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+                <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/mars-box.png') }}"
+                    alt="Mars" />
+                <div class="p-5">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Mars</h5>
+                    <p class="my-3 font-normal text-gray-400">
+                        Mars, often referred to as the "Red Planet," is the fourth planet from the Sun. It is a rocky
+                        world
+                        with a thin atmosphere, characterized by its reddish appearance due to iron oxide prevalent on
+                        its
+                        surface.
+                    </p>
+                    <a href="/mars"
+                        class="mt-5 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none bg-red-600 hover:bg-red-700 focus:ring-red-800">
+                        Book Tickets
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+                <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/jupiter-box.png') }}"
+                    alt="Jupiter" />
+                <div class="p-5">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Jupiter</h5>
+                    <p class="my-3 font-normal text-gray-400">
+                        Jupiter is the largest planet in our solar system, known for its massive size and iconic
+                        swirling
+                        clouds. It is a gas giant composed mainly of hydrogen and helium and is adorned with a series of
+                        colorful bands.
+                    </p>
+                    <a href="/jupiter"
+                        class="mt-5 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg  focus:ring-4 focus:outline-none bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-800">
+                        Book Tickets
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+                <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/saturn-box.png') }}"
+                    alt="Saturn" />
+                <div class="p-5">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">Saturn</h5>
+                    <p class="my-3 font-normal text-gray-400">
+                        Saturn is famous for its beautiful rings, which are made up of ice particles, rocks, and dust.
+                        It is
+                        the sixth planet from the Sun and is a gas giant like Jupiter, with a complex and dynamic
+                        atmosphere.
+                    </p>
+                    <a href="/saturn"
+                        class="mt-5 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none bg-purple-600 hover:bg-purple-700 focus:ring-purple-800">
+                        Book Tickets
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
+
 
 {% endblock %}

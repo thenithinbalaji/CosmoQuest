@@ -8,8 +8,8 @@ function generateStar(id) {
     starDiv.id = 'star' + nStars;
     document.querySelector(id).appendChild(starDiv);
 
-    var randY = Math.random() * (window.innerHeight - 100); // Random Y position within viewport height
-    var randX = Math.random() * (window.innerWidth - 100); // Random X position within viewport width
+    var randY = Math.random() * (window.innerHeight - 500); // Random Y position within viewport height
+    var randX = Math.random() * (window.innerWidth - 500); // Random X position within viewport width
     var randDX = (Math.random() - 0.5) * 10; // Random horizontal velocity
     var randDY = (Math.random() - 0.5) * 10; // Random vertical velocity
     var randO = 0.5 + (Math.random() / 2); // Random opacity
@@ -50,13 +50,15 @@ function generateStars(id, number) {
 
 window.onload = function () {
 
-    generateStars('body', 240);
+    // generateStars('body', 240);
 
     document.getElementById('loginForm').classList.add('animate__fadeInUp');
     document.getElementById('navbar').classList.add('animate__fadeInDown');
 
     setTimeout(function () {
         document.getElementById('loginForm').style.visibility = 'visible';
-    }, 500);
+        document.getElementById('navbar').style.visibility = 'visible';
+
+    }, 1000);
 };
 
