@@ -21,24 +21,33 @@
         </div>
 
         <div>
+            {% if login == "true" %}
+            <a href="/dashboard"
+                class="flex items-center justify-center h-12 px-6 w-40 bg-[#3c3f62] rounded font-semibold text-sm hover:bg-[#545989]">Dashboard</a>
+            {% else %}
             <a href="/login"
                 class="flex items-center justify-center h-12 px-6 w-40 bg-[#3c3f62] rounded font-semibold text-sm hover:bg-[#545989]">Login</a>
+            {% endif %}
+
         </div>
     </div>
 
-    <div class="relative">
+    <div class="relative" id="hero">
         <img src="{{ url_for('static', filename='assets/bg2.png') }}" alt="hero" class="w-full z-50" id="heroimg">
         <div class="absolute inset-0 flex flex-col justify-center items-center" id="title">
-            <h1 class="text-8xl font-extrabold tracking-widest font-[Montserrat] text-white text-center">LOOK UP.</h1>
-            <p class="text-white text-xl font-bold tracking-wide font-[Montserrat]">Yes, up there, up to the stars
+            <h1 class="text-3xl md:text-8xl font-extrabold tracking-widest font-[Montserrat] text-white text-center">
+                LOOK UP.</h1>
+            <p class="text-white text-md md:text-xl font-bold tracking-wide font-[Montserrat]">Yes, up there, up to the
+                stars
             </p>
         </div>
     </div>
 
     <div class="flex justify-center mb-5">
         <div class="w-3/4 p-5">
-            <h1 class="text-5xl font-extrabold font-[Montserrat] text-white pt-20 mb-5" id="aboutus">About Us</h1>
-            <p class="text-gray-300">
+            <h1 class="text-5xl font-extrabold font-[Montserrat] text-white pt-20 mb-5" id="aboutus">
+                About Us</h1>
+            <p class="text-gray-300" id="aboutus-desc">
                 At CosmoQuest, we're on a mission to make space exploration a reality for everyone. Founded by a team of
                 passionate space enthusiasts, scientists, and entrepreneurs, we believe that the wonders of the cosmos
                 should be accessible to all. Whether you're an aspiring astronaut, a seasoned stargazer, or simply
@@ -60,7 +69,7 @@
         </h1>
 
         <div class="flex flex-wrap justify-center gap-8">
-            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit planetcard">
 
                 <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/moon-box.png') }}"
                     alt="" />
@@ -90,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit planetcard">
                 <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/mars-box.png') }}"
                     alt="Mars" />
                 <div class="p-5">
@@ -114,7 +123,7 @@
                 </div>
             </div>
 
-            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit planetcard">
                 <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/jupiter-box.png') }}"
                     alt="Jupiter" />
                 <div class="p-5">
@@ -137,7 +146,7 @@
                 </div>
             </div>
 
-            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit">
+            <div class="max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-fit planetcard">
                 <img class="rounded-t-lg w-full h-64" src="{{ url_for('static', filename='assets/saturn-box.png') }}"
                     alt="Saturn" />
                 <div class="p-5">

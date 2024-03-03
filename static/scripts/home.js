@@ -1,3 +1,9 @@
+window.sr = ScrollReveal();
+
+sr.reveal('#aboutus');
+sr.reveal('#aboutus-desc');
+sr.reveal('.planetcard');
+
 window.onload = function () {
 
     document.getElementById('navbar').classList.add('animate__fadeInDown');

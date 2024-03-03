@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/dash.css') }}">
+{% endblock %}
+
+{% block main %}
+
+<body class="bg-[#0C0D12]">
+
+    <div class="fixed w-full text-white flex justify-between p-5 bg-gradient-to-b from-black to-transparent z-10"
+        id="navbar">
+
+        <div class="flex justify-center gap-5">
+            <a href="/" class="hover:scale-110 duration-200">Home</a>
+            <a href="/#aboutus" class="hover:scale-110 duration-200 hidden md:block">About Us</a>
+            <a href="/#planets" class="hover:scale-110 duration-200">Book Tickets</a>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-lg mx-auto backdrop-blur-md bg-white/10 p-8 rounded-lg shadow-md">
+            <!-- User Information -->
+            <div class="text-center mb-8">
+                <h1 class="text-2xl text-white font-semibold">Welcome, {{ user.name }}</h1>
+                <p class="text-gray-300">{{ user.email }}</p>
+            </div>
+
+            <!-- Logout Button -->
+            <div class="text-center">
+                <a href="/logout"
+                    class="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">Logout</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="overflow-x-auto text-gray-300 flex justify-center">
+        <table class="table-auto backdrop-blur-md bg-white/10 w-fit">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Date</th>
+                    <th class="px-4 py-2">Destination</th>
+                    <th class="px-4 py-2">Number of People</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in user.travel %}
+                <tr>
+                    <td class="border px-4 py-2">{{ ticket[0] }}</td>
+                    <td class="border px-4 py-2">{{ ticket[1] }}</td>
+                    <td class="border px-4 py-2">{{ ticket[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}
