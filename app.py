@@ -17,7 +17,7 @@ try:
 except Exception as err:
 	print(err)
 
-mongo_uri = os.getenv("db_url")
+mongo_uri = "mongodb+srv://thenithinbalaji:wv9v9sspzZSAeCj@cosmoquest.o9ocbh2.mongodb.net/?retryWrites=true&w=majority&appName=Cosmoquest"
 print(mongo_uri)
 
 myclient = pymongo.MongoClient(mongo_uri)
