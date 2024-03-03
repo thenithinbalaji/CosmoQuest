@@ -2,8 +2,6 @@ import pymongo, os
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from bson import json_util
 import json
-import datetime
-import secrets
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "vaishnave nithin"
@@ -12,12 +10,11 @@ database_name = "cosmoquest"
 # loading env data
 try:
 	from dotenv import load_dotenv
-
 	load_dotenv()
 except Exception as err:
 	print(err)
 
-mongo_uri = "mongodb+srv://thenithinbalaji:wv9v9sspzZSAeCj@cosmoquest.o9ocbh2.mongodb.net/?retryWrites=true&w=majority&appName=Cosmoquest"
+mongo_uri = os.getenv("db_url")
 print(mongo_uri)
 
 myclient = pymongo.MongoClient(mongo_uri)
@@ -102,66 +99,76 @@ def mars():
     if not request.args.get('date'):
         return render_template("mars.html")
     else:
-        planet = "Mars"
-        date = request.args.get('date')
-        count = request.args.get('passengers')
+        if "user" in session:
+            planet = "Mars"
+            date = request.args.get('date')
+            count = request.args.get('passengers')
 
-        user_email = session.get('user')["email"]
-        
-        client = pymongo.MongoClient(mongo_uri)
-        db = client[database_name]
-        collection = db["auth"]
+            user_email = session.get('user')["email"]
+            
+            client = pymongo.MongoClient(mongo_uri)
+            db = client[database_name]
+            collection = db["auth"]
 
-        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+            collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
 
-        user = collection.find_one({"email": session.get('user')["email"]})
-        session["user"] = json.loads(json_util.dumps(user))
+            user = collection.find_one({"email": session.get('user')["email"]})
+            session["user"] = json.loads(json_util.dumps(user))
 
-        return redirect(url_for("dash"))
+            return redirect(url_for("dash"))
+        else:
+            return redirect(url_for("login"))
+             
 
 @app.route("/moon", methods=["GET", "POST"])
 def moon():
     if not request.args.get('date'):
         return render_template("moon.html")
     else:
-        planet = "Moon"
-        date = request.args.get('date')
-        count = request.args.get('passengers')
+        if "user" in session:
+            planet = "Moon"
+            date = request.args.get('date')
+            count = request.args.get('passengers')
 
-        user_email = session.get('user')["email"]
+            user_email = session.get('user')["email"]
+            
+            client = pymongo.MongoClient(mongo_uri)
+            db = client[database_name]
+            collection = db["auth"]
+
+            collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+
+            user = collection.find_one({"email": session.get('user')["email"]})
+            session["user"] = json.loads(json_util.dumps(user))
+
+            return redirect(url_for("dash"))
+        else:
+            return redirect(url_for("login"))
         
-        client = pymongo.MongoClient(mongo_uri)
-        db = client[database_name]
-        collection = db["auth"]
-
-        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
-
-        user = collection.find_one({"email": session.get('user')["email"]})
-        session["user"] = json.loads(json_util.dumps(user))
-
-        return redirect(url_for("dash"))
-
 @app.route("/jupiter", methods=["GET", "POST"])
 def jupiter():
     if not request.args.get('date'):
         return render_template("jupiter.html")
     else:
-        planet = "Jupiter"
-        date = request.args.get('date')
-        count = request.args.get('passengers')
+        if "user" in session:
+            planet = "Jupiter"
+            date = request.args.get('date')
+            count = request.args.get('passengers')
 
-        user_email = session.get('user')["email"]
-        
-        client = pymongo.MongoClient(mongo_uri)
-        db = client[database_name]
-        collection = db["auth"]
+            user_email = session.get('user')["email"]
+            
+            client = pymongo.MongoClient(mongo_uri)
+            db = client[database_name]
+            collection = db["auth"]
 
-        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+            collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
 
-        user = collection.find_one({"email": session.get('user')["email"]})
-        session["user"] = json.loads(json_util.dumps(user))
+            user = collection.find_one({"email": session.get('user')["email"]})
+            session["user"] = json.loads(json_util.dumps(user))
 
-        return redirect(url_for("dash"))
+            return redirect(url_for("dash"))
+        else:
+            return redirect(url_for("login"))
         
 
 @app.route("/saturn", methods=["GET", "POST"])
@@ -169,22 +176,25 @@ def saturn():
     if not request.args.get('date'):
         return render_template("saturn.html")
     else:
-        planet = "Saturn"
-        date = request.args.get('date')
-        count = request.args.get('passengers')
+        if "user" in session:
+            planet = "Saturn"
+            date = request.args.get('date')
+            count = request.args.get('passengers')
 
-        user_email = session.get('user')["email"]
-        
-        client = pymongo.MongoClient(mongo_uri)
-        db = client[database_name]
-        collection = db["auth"]
+            user_email = session.get('user')["email"]
+            
+            client = pymongo.MongoClient(mongo_uri)
+            db = client[database_name]
+            collection = db["auth"]
 
-        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+            collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
 
-        user = collection.find_one({"email": session.get('user')["email"]})
-        session["user"] = json.loads(json_util.dumps(user))
+            user = collection.find_one({"email": session.get('user')["email"]})
+            session["user"] = json.loads(json_util.dumps(user))
 
-        return redirect(url_for("dash"))
+            return redirect(url_for("dash"))
+        else:
+            return redirect(url_for("login"))
 
 @app.route("/dashboard")
 def dash():
@@ -198,4 +208,5 @@ def not_found_error(error):
 	return redirect(url_for("home"))
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	# app.run(debug=True)
+    app.run()

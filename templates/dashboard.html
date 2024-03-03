@@ -19,42 +19,50 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-lg mx-auto backdrop-blur-md bg-white/10 p-8 rounded-lg shadow-md">
-            <!-- User Information -->
-            <div class="text-center mb-8">
-                <h1 class="text-2xl text-white font-semibold">Welcome, {{ user.name }}</h1>
-                <p class="text-gray-300">{{ user.email }}</p>
-            </div>
+    <div class="h-screen w-full flex justify-center p-5">
 
-            <!-- Logout Button -->
-            <div class="text-center">
-                <a href="/logout"
-                    class="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">Logout</a>
+        <div class="my-auto">
+            <div class="flex flex-wrap justify-center gap-5">
+
+                <div class="container mx-auto px-4 w-fit h-fit">
+                    <div class="max-w-lg mx-auto backdrop-blur-md bg-white/10 p-8 rounded-lg shadow-md">
+                        <div class="text-center">
+                            <img src="https://robohash.org/{{user.name}}?bgset=bg2" class="w-48 rounded-full shadow-lg">
+                            <h1 class="text-2xl text-white font-semibold mt-5">{{ user.name }}</h1>
+                            <p class="text-gray-300">{{ user.email }}</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <a href="/logout"
+                            class="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">Logout</a>
+                    </div>
+                </div>
+
+                <div class="text-gray-300 flex justify-center w-fit h-fit">
+                    <table class="table-auto backdrop-blur-md bg-white/10 w-fit rounded-lg">
+                        <thead>
+                            <tr>
+                                <th class="border-r-4 border-b-4 border-[#0C0D12] px-4 py-2 ">Date</th>
+                                <th class="border-r-4 border-b-4 border-[#0C0D12] px-4 py-2">Destination</th>
+                                <th class="border-b-4 border-[#0C0D12] px-4 py-2">Passengers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ticket in user.tickets %}
+                            <tr>
+                                {% set date_components = ticket.date.split('-') %}
+                                <td class="border-r-4 border-[#0C0D12] px-4 py-2">{{ date_components[2] }}/{{
+                                    date_components[1] }}/{{ date_components[0] }}</td>
+                                <td class="border-r-4 border-[#0C0D12] px-4 py-2">{{ ticket.planet }}</td>
+                                <td class="px-4 py-2">{{ ticket.passengers }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <div class="overflow-x-auto text-gray-300 flex justify-center">
-        <table class="table-auto backdrop-blur-md bg-white/10 w-fit">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2">Date</th>
-                    <th class="px-4 py-2">Destination</th>
-                    <th class="px-4 py-2">Number of People</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for ticket in user.tickets %}
-                <tr>
-                    <td class=" px-4 py-2">{{ ticket.date }}</td>
-                    <td class=" px-4 py-2">{{ ticket.planet }}</td>
-                    <td class=" px-4 py-2">{{ ticket.passengers }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
     </div>
 </body>
 {% endblock %}
