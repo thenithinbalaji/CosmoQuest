@@ -1,6 +1,7 @@
 # general ignores
 venv
 .env
+__pycache__
 
 # nithin ignores
 .vscode

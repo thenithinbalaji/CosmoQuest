@@ -18,11 +18,11 @@
         <a href="/#aboutus" class="hover:scale-110 duration-200">About Us</a>
     </div>
 
-    <div class=" flex flex-col justify-start p-10 w-fit h-fit my-auto rounded-2xl backdrop-blur-md bg-white/10
-            shadow-2xl" id="loginForm">
+    <div class="flex flex-col justify-start p-10 w-fit h-fit my-auto rounded-2xl backdrop-blur-md bg-white/10 shadow-2xl"
+        id="loginForm">
 
         <h1 class="text-2xl font-bold text-gray-200 text-center">
-            CosmoQuest Login
+            Create Account
         </h1>
 
         <!-- <div class="mt-5">
@@ -49,7 +49,12 @@
 
         <form class="flex flex-col rounded p-5" method="post">
 
-            <label class="font-semibold text-xs text-gray-200" for="usernameField">Email</label>
+            <label class="font-semibold text-xs text-gray-200" for="nameField">Name</label>
+            <input
+                class="flex items-center h-12 px-4 w-64 bg-gray-100/10 mt-2 rounded focus:outline-none focus:ring-2 focus:ring-white/20 text-gray-200"
+                type="name" name="name" required>
+
+            <label class="font-semibold text-xs mt-3 text-gray-200" for="usernameField">Email</label>
             <input
                 class="flex items-center h-12 px-4 w-64 bg-gray-100/10 mt-2 rounded focus:outline-none focus:ring-2 focus:ring-white/20 text-gray-200"
                 type="email" name="email" required>
@@ -59,15 +64,20 @@
                 class="flex items-center h-12 px-4 w-64 bg-gray-100/10 mt-2 rounded focus:outline-none focus:ring-2 focus:ring-white/20 text-gray-200"
                 type="password" name="password" required>
 
+            <label class="font-semibold text-xs mt-3 text-gray-200" for="passwordField">Confirm Password</label>
+            <input
+                class="flex items-center h-12 px-4 w-64 bg-gray-100/10 mt-2 rounded focus:outline-none focus:ring-2 focus:ring-white/20 text-gray-200"
+                type="password" name="repassword" required>
+
             <button
-                class="flex items-center justify-center h-12 px-6 w-64 bg-[#122931] mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-[#1d414e]">Login</button>
+                class="flex items-center justify-center h-12 px-6 w-64 bg-[#122931] mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-[#1d414e]">Signup</button>
 
         </form>
 
         <p class="text-white text-center">
-            Don't have an account? <a href="/signup" class="text-blue-400 hover:text-blue-300 font-bold">Register
-                here</a>
+            Already Registered? <a href="/login" class="text-blue-400 hover:text-blue-300 font-bold">Login here</a>
         </p>
+
     </div>
 </body>
 
