@@ -1,0 +1,155 @@
+/* .book-box::before {
+    width: 200px;
+    height: 200px;
+    background: transparent;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+} */
+
+#date {
+    color: #C5CED6;
+}
+
+.select {
+    text-align: start;
+    border: none;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    text-indent: 1rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), #486974 50%) bottom;
+    cursor: pointer;
+}
+
+#idate {
+    text-align: start;
+    color: #C5CED6;
+    border: none;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    text-indent: 0.2rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), #486974 50%) bottom;
+}
+
+
+.ticketContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+}
+
+.ticket {
+    /* animation: bouncingCard 0.6s ease-out infinite alternate; */
+    background-color: white;
+    color: darkslategray;
+    border-radius: 12px;
+}
+
+.ticketShadow {
+    /* animation: bouncingShadow 0.6s ease-out infinite alternate; */
+    margin-top: 4px;
+    width: 95%;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    filter: blur(12px);
+}
+
+/* Ticket Content */
+.ticketTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 12px 16px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+hr {
+    width: 90%;
+    border: 1px solid #efefef;
+}
+
+.ticketDetail {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 4px 16px;
+}
+
+.ticketSubDetail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1rem;
+    padding: 12px 16px;
+}
+
+.ticketSubDetail .code {
+    margin-right: 24px;
+}
+
+/* Ticket Ripper */
+.ticketRip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circleLeft {
+    width: 12px;
+    height: 24px;
+    background-color: #000000;
+    border-radius: 0 12px 12px 0;
+}
+
+.ripLine {
+    width: 100%;
+    border-top: 3px solid #000000;
+    border-top-style: dashed;
+}
+
+.circleRight {
+    width: 12px;
+    height: 24px;
+    background-color: #000000;
+    border-radius: 12px 0 0 12px;
+}
+
+.items {
+    margin-inline-end: auto;
+}
+
+.bbtn {
+    border: 1px solid hotpink;
+    width: max-content;
+    text-align: center;
+    margin-inline-start: auto;
+    font-size: small;
+    background-color: #17BFCB;
+    border: none;
+    border-radius: 5rem;
+    padding: 0.5rem;
+}
+
+
+/* Ticket Bouncing Animation */
+/* @keyframes bouncingCard {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes bouncingShadow {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(4px);
+    }
+} */
