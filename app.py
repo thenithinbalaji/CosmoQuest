@@ -99,19 +99,92 @@ def signup():
 
 @app.route("/mars", methods=["GET", "POST"])
 def mars():
-    return render_template("mars.html")
+    if not request.args.get('date'):
+        return render_template("mars.html")
+    else:
+        planet = "Mars"
+        date = request.args.get('date')
+        count = request.args.get('passengers')
+
+        user_email = session.get('user')["email"]
+        
+        client = pymongo.MongoClient(mongo_uri)
+        db = client[database_name]
+        collection = db["auth"]
+
+        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+
+        user = collection.find_one({"email": session.get('user')["email"]})
+        session["user"] = json.loads(json_util.dumps(user))
+
+        return redirect(url_for("dash"))
 
 @app.route("/moon", methods=["GET", "POST"])
 def moon():
-    return render_template("moon.html")
+    if not request.args.get('date'):
+        return render_template("moon.html")
+    else:
+        planet = "Moon"
+        date = request.args.get('date')
+        count = request.args.get('passengers')
+
+        user_email = session.get('user')["email"]
+        
+        client = pymongo.MongoClient(mongo_uri)
+        db = client[database_name]
+        collection = db["auth"]
+
+        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+
+        user = collection.find_one({"email": session.get('user')["email"]})
+        session["user"] = json.loads(json_util.dumps(user))
+
+        return redirect(url_for("dash"))
 
 @app.route("/jupiter", methods=["GET", "POST"])
 def jupiter():
-    return render_template("jupiter.html")
+    if not request.args.get('date'):
+        return render_template("jupiter.html")
+    else:
+        planet = "Jupiter"
+        date = request.args.get('date')
+        count = request.args.get('passengers')
+
+        user_email = session.get('user')["email"]
+        
+        client = pymongo.MongoClient(mongo_uri)
+        db = client[database_name]
+        collection = db["auth"]
+
+        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+
+        user = collection.find_one({"email": session.get('user')["email"]})
+        session["user"] = json.loads(json_util.dumps(user))
+
+        return redirect(url_for("dash"))
+        
 
 @app.route("/saturn", methods=["GET", "POST"])
 def saturn():
-    return render_template("saturn.html")
+    if not request.args.get('date'):
+        return render_template("saturn.html")
+    else:
+        planet = "Saturn"
+        date = request.args.get('date')
+        count = request.args.get('passengers')
+
+        user_email = session.get('user')["email"]
+        
+        client = pymongo.MongoClient(mongo_uri)
+        db = client[database_name]
+        collection = db["auth"]
+
+        collection.update_one({"email": user_email}, {"$push": {"tickets": {"planet": planet, "date": date, "passengers": count}}})
+
+        user = collection.find_one({"email": session.get('user')["email"]})
+        session["user"] = json.loads(json_util.dumps(user))
+
+        return redirect(url_for("dash"))
 
 @app.route("/dashboard")
 def dash():

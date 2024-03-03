@@ -46,11 +46,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% for ticket in user.travel %}
+                {% for ticket in user.tickets %}
                 <tr>
-                    <td class="border px-4 py-2">{{ ticket[0] }}</td>
-                    <td class="border px-4 py-2">{{ ticket[1] }}</td>
-                    <td class="border px-4 py-2">{{ ticket[2] }}</td>
+                    <td class=" px-4 py-2">{{ ticket.date }}</td>
+                    <td class=" px-4 py-2">{{ ticket.planet }}</td>
+                    <td class=" px-4 py-2">{{ ticket.passengers }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
