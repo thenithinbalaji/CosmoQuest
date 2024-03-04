@@ -25,7 +25,7 @@
             <div class="flex flex-wrap justify-center gap-5">
 
                 <div class="container mx-auto px-4 w-fit h-fit">
-                    <div class="max-w-lg mx-auto backdrop-blur-md bg-white/10 p-8 rounded-lg shadow-md">
+                    <div class="max-w-lg mx-auto backdrop-blur-md bg-white/10 p-8 rounded-lg shadow-md" id="profile">
                         <div class="text-center">
                             <img src="https://robohash.org/{{user.name}}?bgset=bg2" class="w-48 rounded-full shadow-lg">
                             <h1 class="text-2xl text-white font-semibold mt-5">{{ user.name }}</h1>
@@ -34,12 +34,12 @@
                     </div>
 
                     <div class="text-center mt-5">
-                        <a href="/logout"
+                        <a href="/logout" id="logoutbtn"
                             class="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">Logout</a>
                     </div>
                 </div>
 
-                <div class="text-gray-300 flex justify-center w-fit h-fit">
+                <div class="text-gray-300 flex justify-center w-fit h-fit" id="table">
                     <table class="table-auto backdrop-blur-md bg-white/10 w-fit rounded-lg">
                         <thead>
                             <tr>
@@ -64,5 +64,27 @@
             </div>
         </div>
     </div>
+
+
+    <script>
+        window.onload = function () {
+
+            document.getElementById('logoutbtn').classList.add('animate__fadeInUp3');
+            document.getElementById('table').classList.add('animate__fadeInUp2');
+            document.getElementById('profile').classList.add('animate__fadeInUp');
+
+            setTimeout(function () {
+                document.getElementById('logoutbtn').style.visibility = 'visible';
+            }, 2000);
+
+            setTimeout(function () {
+                document.getElementById('table').style.visibility = 'visible';
+            }, 1500);
+
+            setTimeout(function () {
+                document.getElementById('profile').style.visibility = 'visible';
+            }, 1000);
+        };
+    </script>
 </body>
 {% endblock %}
