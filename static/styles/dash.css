@@ -1,5 +1,39 @@
-body {
+/* body {
     background-image: url("../assets/bg4.png");
     background-size: cover;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+} */
+
+#logoutbtn,
+#profile,
+#table {
+    visibility: hidden;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+}
+
+.animate__fadeInUp2 {
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;
+}
+
+.animate__fadeInUp3 {
+    animation-name: fadeInUp;
+    animation-duration: 2s;
 }

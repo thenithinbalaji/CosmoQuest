@@ -2,11 +2,17 @@
 
 <p align="center">
 <a href="#">
-    <img src="https://skillicons.dev/icons?i=html,css,js,tailwind,flask" />
+    <img src="https://skillicons.dev/icons?i=html,css,js,tailwind,flask,mongodb" />
 </a>
 </p>
 
 ## Running Locally
+
+Create .env with MongoDB Connection String
+
+```bash
+db_url = ""
+```
 
 Recommended to create virtual environment and install modules from requirements.txt
 
